@@ -86,7 +86,7 @@ void Engine::Broadcast(const Message& msg)
 {
 	for (unsigned i = 0; i < system_.size(); i++)
 	{
-		system_[i]->HandleMessage(msg);
+		system_[i]->Handle_Message(msg);
 	}
 }
 

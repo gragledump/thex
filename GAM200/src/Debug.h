@@ -36,7 +36,7 @@ public:
 
 	void Tick(float dt);
 
-    void HandleMessage(const Message& msg);
+    void Handle_Message(const Message& msg);
 
 private:
     std::fstream log_;

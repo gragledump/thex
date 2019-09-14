@@ -26,5 +26,5 @@ class System
 public:
 	virtual ~System() {}
 	virtual void Tick(float dt) = 0;                     // Function to be called each tick
-	virtual void HandleMessage(const Message& msg) = 0;  // Message Handler
+	virtual void Handle_Message(const Message& msg) = 0;  // Message Handler
 };

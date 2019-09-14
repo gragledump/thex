@@ -45,7 +45,7 @@ Debug::Debug(std::string filepath)
 
 */
 /******************************************************************************/
-void Debug::HandleMessage(const Message& msg)
+void Debug::Handle_Message(const Message& msg)
 {
     switch (msg.type_)
     {
