@@ -22,6 +22,18 @@
     <Filter Include="Source Files\Engine\Systems">
       <UniqueIdentifier>{d93e3174-fb00-4929-aeb4-bd9b40f191e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Precompiled">
+      <UniqueIdentifier>{f6d804fe-c62e-4c56-9cde-d239e60f102f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Factory">
+      <UniqueIdentifier>{25bc5a82-de8a-477f-8909-b348f8c24554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Factory\Component">
+      <UniqueIdentifier>{b8d4068f-3dec-4f86-bfcf-7739adbe4bd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Factory\Component\Transform">
+      <UniqueIdentifier>{83ecb14f-e43f-463c-b9fb-c12752e45ea3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp">
@@ -35,6 +47,12 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdafx.cpp">
+      <Filter>Source Files\Engine\Precompiled</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Transform.cpp">
+      <Filter>Source Files\Engine\Factory\Component\Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +70,15 @@
     </ClInclude>
     <ClInclude Include="src\System.h">
       <Filter>Source Files\Engine\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stdafx.h">
+      <Filter>Source Files\Engine\Precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component.h">
+      <Filter>Source Files\Engine\Factory\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transform.h">
+      <Filter>Source Files\Engine\Factory\Component\Transform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

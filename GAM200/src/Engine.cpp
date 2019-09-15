@@ -17,7 +17,6 @@
 #include "Debug.h"
 
 #include "Message.h"
-#include <cassert>
 
 bool Engine::running_ = false;
 std::vector<System*> Engine::system_;

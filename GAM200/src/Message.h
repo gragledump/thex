@@ -12,8 +12,6 @@
 
 #pragma once
 
-#include <string>
-
 class Engine;
 
 enum MSGType
