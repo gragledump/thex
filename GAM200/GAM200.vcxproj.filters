@@ -34,13 +34,16 @@
     <Filter Include="Source Files\Engine\Factory\Component\Transform">
       <UniqueIdentifier>{83ecb14f-e43f-463c-b9fb-c12752e45ea3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Systems\Debug">
+      <UniqueIdentifier>{fbc8225f-d630-4dc0-8012-55891c4b337e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UnitTests">
+      <UniqueIdentifier>{c4bcdaa6-6a54-4d43-9c94-66876515765b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp">
       <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Debug.cpp">
-      <Filter>Source Files\Engine\Systems</Filter>
     </ClCompile>
     <ClCompile Include="src\Message.cpp">
       <Filter>Source Files\Engine\Messages</Filter>
@@ -54,13 +57,19 @@
     <ClCompile Include="src\Transform.cpp">
       <Filter>Source Files\Engine\Factory\Component\Transform</Filter>
     </ClCompile>
+    <ClCompile Include="src\Debug.cpp">
+      <Filter>Source Files\Engine\Systems\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UnitTest_Transform.cpp">
+      <Filter>Source Files\UnitTests</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UnitTest.cpp">
+      <Filter>Source Files\Engine\Systems\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine.h">
       <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Debug.h">
-      <Filter>Source Files\Engine\Systems</Filter>
     </ClInclude>
     <ClInclude Include="src\ScopeTimer.h">
       <Filter>Source Files\Engine</Filter>
@@ -79,6 +88,15 @@
     </ClInclude>
     <ClInclude Include="src\Transform.h">
       <Filter>Source Files\Engine\Factory\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Debug.h">
+      <Filter>Source Files\Engine\Systems\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UnitTest.h">
+      <Filter>Source Files\Engine\Systems\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UnitTest_Transform.h">
+      <Filter>Source Files\UnitTests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

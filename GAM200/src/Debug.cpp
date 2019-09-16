@@ -11,6 +11,7 @@
 /******************************************************************************/
 
 #include "Debug.h"
+#include "UnitTest.h"
 #include "Message.h"
 
 
@@ -24,8 +25,10 @@
 
 */
 /******************************************************************************/
-Debug::Debug(std::string filepath)
+Debug::Debug(std::string filepath, DBG_LV consoleSeverity, DBG_LV logSeverity)
 {
+	logSeverity_ = logSeverity;
+	consoleSeverity_ = consoleSeverity;
     log_.open(filepath, std::ios::out);
     assert(log_.is_open());
 }
@@ -44,14 +47,26 @@ void Debug::Handle_Message(const Message& msg)
 {
     switch (msg.type_)
     {
-    case MSG_STR:
+    case MSG_DEBUG:
     {
-        const StrMessage& strMsg = static_cast<const StrMessage&>(msg); // cast to correct type
-          // log and print
-        log_ << strMsg.mStr_ << '\n';
-        std::cout << strMsg.mStr_ << std::endl;
+        const DebugMessage& strMsg = static_cast<const DebugMessage&>(msg); // cast to correct type
+		if (strMsg.severity_ <= logSeverity_)
+		{
+			log_ << strMsg.mStr_ << '\n';  // log and print
+		}
+
+		if (strMsg.severity_ <= consoleSeverity_)
+		{
+			std::cout << strMsg.mStr_ << std::endl;
+		}
         break;
     }
+	case MSG_UTEST:
+	{
+		const UnitTestMessage& tstMsg = static_cast<const UnitTestMessage&>(msg);
+		Run_Unit_Test(tstMsg.unit_);
+		break;
+	}
     default:
     {
         std::cout << "F U" << std::endl;
@@ -60,6 +75,30 @@ void Debug::Handle_Message(const Message& msg)
     }
 }
 
+/******************************************************************************/
+/*!
+  \brief
+	Runs a specific unit test.
+
+  \param uType
+	Specific unit to test.
+
+*/
+/******************************************************************************/
+void Debug::Run_Unit_Test(UT::UType uType)
+{
+	UT::Test_Unit(uType);
+}
+
+/******************************************************************************/
+/*!
+  \brief
+	Runs on tick.
+
+  \param dt
+
+*/
+/******************************************************************************/
 void Debug::Tick(float dt)
 {
 	(dt);

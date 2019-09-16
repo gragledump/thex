@@ -18,7 +18,7 @@ struct Message;
 
 /******************************************************************************/
 /*!
-  \class Component
+  \class Transform
   \brief
 	Interface for the transform component. Uses glm vector/matrix constructs.
 */
@@ -27,6 +27,9 @@ class Transform : public Component
 {
 public:
 	Transform(float x, float y);
+	Transform(glm::vec2 translation);
+	Transform(glm::vec2 translation, glm::vec2 scale);
+	Transform(glm::vec2 translation, glm::vec2 scale, float rotation);
 	Transform(const Transform& other);
 
 	const glm::mat3& Mtx();
@@ -39,6 +42,9 @@ public:
 
 	const glm::vec2& Scale() const;
 	void Scale(const glm::vec2& scale);
+
+	virtual void Tick(float dt) {}
+	virtual void Handle_Message(const Message& msg) {}
 
 private:
 	void CleanMtx();

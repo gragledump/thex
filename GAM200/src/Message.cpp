@@ -13,9 +13,19 @@
 #include "Message.h"
 #include "Engine.h"
 
-Message::Message() : type_(MSG_UNKNOWN), sender_(nullptr)
-{}
+/******************************************************************************/
+/*!
+  \brief
+	Constructor for base message.
 
+  \param type
+    Type of message used by handlers to determine course of action.
+
+  \param sender
+    Void pointer to entity which sent the message.
+
+*/
+/******************************************************************************/
 Message::Message(MSGType type, void* sender) : type_(type), sender_(sender)
 {}
 
