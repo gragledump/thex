@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Grey\Desktop\THex\local\GAM200\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Grey\Desktop\THex\local\GAM200\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\include;$(IncludePath)</IncludePath>
+    <LibraryPath>.\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -121,10 +121,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Bounds.cpp" />
+    <ClCompile Include="src\BoundsDetection.cpp" />
     <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Message.cpp" />
+    <ClCompile Include="src\PhysicsBody.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\SceneTable.cpp" />
+    <ClCompile Include="src\SceneTest.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -133,9 +139,14 @@
     <ClCompile Include="src\UnitTest_Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Bounds.h" />
+    <ClInclude Include="src\BoundsDetection.h" />
     <ClInclude Include="src\Component.h" />
     <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\PhysicsBody.h" />
+    <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\SceneTable.h" />
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\System.h" />
     <ClInclude Include="src\Message.h" />

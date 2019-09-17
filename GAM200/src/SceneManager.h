@@ -19,7 +19,13 @@ typedef class SceneTable SceneTable;
 struct Message;
 
 
-
+/******************************************************************************/
+/*!
+  \class SceneManager
+  \brief
+    Interface for the SceneManager system
+*/
+/******************************************************************************/
 class SceneManager : public System
 {
 public:
@@ -32,7 +38,7 @@ public:
 
 	void Tick(float dt) { (dt); };
 
-	void HandleMessage(const Message& msg) { (msg); };
+	void Handle_Message(const Message& msg) { (msg); };
 
 		
     // Initialize the Scene Manager system

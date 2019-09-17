@@ -29,11 +29,28 @@
 	//return sceneManager_;
 //}
 
+/******************************************************************************/
+/*!
+    \fn SceneManager::SceneManager()
+
+    \brief
+      Constructor for Scene Manager
+*/
+/******************************************************************************/
 SceneManager::SceneManager()
 {
 	
 }
 
+
+/******************************************************************************/
+/*!
+    \fn void SceneManager::Init()
+
+    \brief
+      Initialize Scene Manager
+*/
+/******************************************************************************/
 void SceneManager::Init()
 {
     //Debug Message: Init SceneManager
@@ -41,7 +58,14 @@ void SceneManager::Init()
     
 }
 
+/******************************************************************************/
+/*!
+    \fn void SceneManager::Update(float dt)
 
+    \brief
+      Updates the scene manager system. Calls current scenes update
+*/
+/******************************************************************************/
 void SceneManager::Update(float dt)
 {
 	//Debug Message: Update SceneManager
@@ -62,21 +86,59 @@ void SceneManager::Update(float dt)
 	 
 }
 
+/******************************************************************************/
+/*!
+    \fn void SceneManager::Shutdown()
+
+    \brief
+      Shutdown the Scene Manager
+*/
+/******************************************************************************/
 void SceneManager::Shutdown()
 {
     //Debug Message: Shutdown SceneManager
 }
 
+/******************************************************************************/
+/*!
+    \fn bool SceneManager::Is_Restarting()
+
+    \brief
+      Returns whether the scene is restarting
+
+    \return
+      True or false
+*/
+/******************************************************************************/
 bool SceneManager::Is_Restarting()
 {
     return nextScene_.Scene_Name() == SCENE_RESTART;
 }
 
+/******************************************************************************/
+/*!
+    \fn bool SceneManager::Is_Running()
+
+    \brief
+      Returns whether the scene is current running
+
+    \return
+      True or false
+*/
+/******************************************************************************/
 bool SceneManager::Is_Running()
 {
     return currScene_.Scene_Name() != SCENE_QUIT;
 }
 
+/******************************************************************************/
+/*!
+    \fn void SceneManager::Restart()
+
+    \brief
+      Restarts the current scene
+*/
+/******************************************************************************/
 void SceneManager::Restart()
 {
 	if (SceneTable::Valid(currScene_.Scene_Name()))
@@ -86,7 +148,14 @@ void SceneManager::Restart()
 	}
 }
 
+/******************************************************************************/
+/*!
+    \fn void SceneManager::Next_Scene(SceneState nextScene)
 
+    \brief
+      Sets the next scene
+*/
+/******************************************************************************/
 void SceneManager::Next_Scene(SceneState nextScene)
 {
     if (SceneTable::Valid(nextScene))

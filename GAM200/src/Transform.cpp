@@ -24,7 +24,7 @@
 
 */
 /******************************************************************************/
-Transform::Transform(float x, float y) :
+Transform::Transform(float x, float y) : Component(CMP_TRANSFORM),
 	translation_(glm::vec2(x, y)), scale_(glm::vec2(1.f, 1.f)), rotation_(0.f), isDirty_(true)
 {
 }
@@ -39,7 +39,7 @@ Transform::Transform(float x, float y) :
 
 */
 /******************************************************************************/
-Transform::Transform(glm::vec2 translation) :
+Transform::Transform(glm::vec2 translation) : Component(CMP_TRANSFORM),
 	translation_(translation), scale_(glm::vec2(1.f, 1.f)), rotation_(0.f), isDirty_(true)
 {
 }
@@ -57,7 +57,7 @@ Transform::Transform(glm::vec2 translation) :
 
 */
 /******************************************************************************/
-Transform::Transform(glm::vec2 translation, glm::vec2 scale) :
+Transform::Transform(glm::vec2 translation, glm::vec2 scale) : Component(CMP_TRANSFORM),
 	translation_(translation), scale_(scale), rotation_(0.f), isDirty_(true)
 {
 }
@@ -78,7 +78,7 @@ Transform::Transform(glm::vec2 translation, glm::vec2 scale) :
 
 */
 /******************************************************************************/
-Transform::Transform(glm::vec2 translation, glm::vec2 scale, float rotation) :
+Transform::Transform(glm::vec2 translation, glm::vec2 scale, float rotation) : Component(CMP_TRANSFORM),
 	translation_(translation), scale_(scale), rotation_(rotation), isDirty_(true)
 {
 }
@@ -93,7 +93,7 @@ Transform::Transform(glm::vec2 translation, glm::vec2 scale, float rotation) :
 
 */
 /******************************************************************************/
-Transform::Transform(const Transform& other)
+Transform::Transform(const Transform& other) : Component(other)
 {
 	*this = other;
 }
