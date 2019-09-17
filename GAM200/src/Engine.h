@@ -12,8 +12,6 @@
 
 #pragma once
 
-#include <vector>
-
 struct Message;
 class System;
 

@@ -14,10 +14,10 @@
 #include "ScopeTimer.h"
 
 #include "System.h"
+#include "UnitTest.h"
 #include "Debug.h"
 
 #include "Message.h"
-#include <cassert>
 
 bool Engine::running_ = false;
 std::vector<System*> Engine::system_;
@@ -30,16 +30,19 @@ std::vector<System*> Engine::system_;
 /******************************************************************************/
 void Engine::Init()
 {
+	running_ = true;
+
     // Instantiate & push_back systems
-    Debug* debug_ = new Debug("test.log");
+    Debug* debug_ = new Debug("test.log", Debug::DEBUG, Debug::DEBUG);
 	System* debugSys = static_cast<System*>(debug_);
 
 	system_.push_back(debugSys);
 
-    running_ = true;
+	DebugMessage initMsg(Debug::INFO, "Engine Initialized & Running");
+	initMsg.Send();
 
-    StrMessage msg(MSG_STR, nullptr, "Engine Initialized & Running");
-    msg.Send();
+	//UnitTestMessage transMsg(UT::C_TRANSFORM);
+	//transMsg.Send();
 }
 
 /******************************************************************************/
@@ -86,7 +89,7 @@ void Engine::Broadcast(const Message& msg)
 {
 	for (unsigned i = 0; i < system_.size(); i++)
 	{
-		system_[i]->HandleMessage(msg);
+		system_[i]->Handle_Message(msg);
 	}
 }
 
