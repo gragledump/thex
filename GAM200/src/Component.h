@@ -25,7 +25,7 @@ typedef enum ComponentType
 {
     CMP_INVALID = -1,
 
-    CMP_BOUNDS,
+    CMP_COLLIDER,
     CMP_PHYSICS,
     CMP_TRANSFORM,
 

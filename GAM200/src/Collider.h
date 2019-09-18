@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file   Bounds.h
+\file   Collider.h
 \author Bennett Ewanchyna
 \par    email: bennett.e@digipen.edu
 \par	GAM200 Project
@@ -18,29 +18,29 @@ class Transform;
 
 /******************************************************************************/
 /*!
-  \class Bounds
+  \class Collider
   \brief
-    Interface for Bounds component
+    Interface for Collider component
 */
 /******************************************************************************/
-class Bounds : public Component
+class Collider : public Component
 {
 public:
-    typedef enum BoundsType
-    {
-        BOUNDS_INVALID = -1,
+	typedef enum ColliderType
+	{
+		COLLIDER_INVALID = -1,
 
-        BOUNDS_BOX,
+		COLLIDER_BOX,
 
-        BOUNDS_CIRCLE,
+		COLLIDER_CIRCLE,
 
-        BOUNDS_COUNT
-    }BoundsType;
+		COLLIDER_COUNT
+	}ColliderType;
 
-    Bounds();
-    Bounds(BoundsType type);
-    Bounds(const Bounds& other);
-    ~Bounds();
+    Collider();
+    Collider(ColliderType type);
+    Collider(const Collider& other);
+    ~Collider();
     Component* Clone() const;
 
     void Tick(float dt) { (dt); };
@@ -48,8 +48,8 @@ public:
 
     void Update(float dt);
 
-    BoundsType Type() const;
-    void Type(BoundsType type);
+    ColliderType Type() const;
+    void Type(ColliderType type);
 
     glm::vec2 Position() const;
     void Position(glm::vec2& position);
@@ -63,7 +63,7 @@ public:
 
 
 private:
-    BoundsType type_;
+    ColliderType type_;
 
     glm::vec2 position_;
 

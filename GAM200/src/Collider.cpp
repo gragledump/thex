@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file   Bounds.h
+\file   Collider.h
 \author Bennett Ewanchyna
 \par    email: bennett.e@digipen.edu
 \par	GAM200 Project
@@ -10,20 +10,20 @@
 */
 /******************************************************************************/
 
-#include "Bounds.h" 
+#include "Collider.h" 
 
 /******************************************************************************/
 /*!
-    \fn Bounds::Bounds() : Component(CMP_BOUNDS)
+    \fn Collider::Collider() : Component(CMP_COLLIDER)
 
     \brief
-      Constructor for Bounds component. Initializes values to 0
+      Constructor for Collider component. Initializes values to 0
 
 */
 /******************************************************************************/
-Bounds::Bounds() : Component(CMP_BOUNDS)
+Collider::Collider() : Component(CMP_COLLIDER)
 {
-    type_ = BOUNDS_INVALID;
+    type_ = COLLIDER_INVALID;
     position_ = { 0.0f, 0.0f };
     scale_ = { 0.0f, 0.0f };
     offset_ = { 0.0f, 0.0f };
@@ -33,16 +33,16 @@ Bounds::Bounds() : Component(CMP_BOUNDS)
 
 /******************************************************************************/
 /*!
-  \fn Bounds::Bounds(BoundsType type) : Component(CMP_BOUNDS)
+  \fn Collider::Collider(ColliderType type) : Component(CMP_COLLIDER)
 
   \brief
-    Constructor for Bounds component. Sets type
+    Constructor for Collider component. Sets type
 
   \param type
-    Type of bounds
+    Type of Collider
 */
 /******************************************************************************/
-Bounds::Bounds(BoundsType type) : Component(CMP_BOUNDS)
+Collider::Collider(ColliderType type) : Component(CMP_COLLIDER)
 {
     type_ = type;
     position_ = { 0.0f, 0.0f };
@@ -54,86 +54,86 @@ Bounds::Bounds(BoundsType type) : Component(CMP_BOUNDS)
 
 /******************************************************************************/
 /*!
-  \fn Bounds::Bounds(const Bounds& other) : Component(other)
+  \fn Collider::Collider(const Collider& other) : Component(other)
 
   \brief
-    Copy constructor for Bounds constructor
+    Copy constructor for Collider constructor
 
   \param other
-    Bounds component to copy
+    Collider component to copy
 */
 /******************************************************************************/
-Bounds::Bounds(const Bounds& other) : Component(other)
+Collider::Collider(const Collider& other) : Component(other)
 {
     *this = other;
 }
 
-Bounds::~Bounds()
+Collider::~Collider()
 {
   
 }
 
 /******************************************************************************/
 /*!
-  \fn Component* Bounds::Clone() const
+  \fn Component* Collider::Clone() const
 
   \brief
     Used to make a clone of components
 */
 /******************************************************************************/
-Component* Bounds::Clone() const
+Component* Collider::Clone() const
 {
-    return new Bounds(*this);
+    return new Collider(*this);
 }
 
 /******************************************************************************/
 /*!
-  \fn Bounds::BoundsType Bounds::Type() const
+  \fn Collider::ColliderType Collider::Type() const
 
   \brief
-    Returns the type of the bounds
+    Returns the type of the Collider
 */
 /******************************************************************************/
-Bounds::BoundsType Bounds::Type() const
+Collider::ColliderType Collider::Type() const
 {
     return type_;
 }
 
 /******************************************************************************/
 /*!
-  \fn void Bounds::Type(BoundsType type)
+  \fn void Collider::Type(ColliderType type)
 
   \brief
-    Sets the type of bounds
+    Sets the type of Collider
 */
 /******************************************************************************/
-void Bounds::Type(BoundsType type)
+void Collider::Type(ColliderType type)
 {
     type_ = type;
 }
 
 /******************************************************************************/
 /*!
-  \fn glm::vec2& Bounds::Position() const
+  \fn glm::vec2& Collider::Position() const
 
   \brief
-    Returns the position of the bounds
+    Returns the position of the Collider
 */
 /******************************************************************************/
-glm::vec2 Bounds::Position() const
+glm::vec2 Collider::Position() const
 {
     return position_;
 }
 
 /******************************************************************************/
 /*!
-  \fn void Bounds::Position(glm::vec2& position)
+  \fn void Collider::Position(glm::vec2& position)
 
   \brief
-    Sets position of bounds
+    Sets position of Collider
 */
 /******************************************************************************/
-void Bounds::Position(glm::vec2& position)
+void Collider::Position(glm::vec2& position)
 {
     position_ = position;
 }
@@ -141,52 +141,52 @@ void Bounds::Position(glm::vec2& position)
 
 /******************************************************************************/
 /*!
-  \fn glm::vec2& Bounds::Scale() const
+  \fn glm::vec2& Collider::Scale() const
 
   \brief
-    Returns the scale of the bounds
+    Returns the scale of the Collider
 */
 /******************************************************************************/
-glm::vec2 Bounds::Scale() const
+glm::vec2 Collider::Scale() const
 {
     return scale_;
 }
 
 /******************************************************************************/
 /*!
-  \fn void Bounds::Scale(glm::vec2& scale)
+  \fn void Collider::Scale(glm::vec2& scale)
 
   \brief
-    Sets scale of bounds
+    Sets scale of Collider
 */
 /******************************************************************************/
-void Bounds::Scale(glm::vec2& scale)
+void Collider::Scale(glm::vec2& scale)
 {
     scale_ = scale;
 }
 
 /******************************************************************************/
 /*!
-  \fn float Bounds::Rotation() const
+  \fn float Collider::Rotation() const
 
   \brief
-    Returns the rotation of bounds
+    Returns the rotation of Collider
 */
 /******************************************************************************/
-float Bounds::Rotation() const
+float Collider::Rotation() const
 {
     return rotation_;
 }
 
 /******************************************************************************/
 /*!
-  \fn void Bounds::Rotation(float rotation)
+  \fn void Collider::Rotation(float rotation)
 
   \brief
-    Sets the rotation of bounds
+    Sets the rotation of Collider
 */
 /******************************************************************************/
-void Bounds::Rotation(float rotation)
+void Collider::Rotation(float rotation)
 {
   rotation_ = rotation;
 }
@@ -194,7 +194,7 @@ void Bounds::Rotation(float rotation)
 
 /******************************************************************************/
 /*!
-  \fn void Bounds::Update(float dt)
+  \fn void Collider::Update(float dt)
 
   \brief
     
@@ -203,7 +203,7 @@ void Bounds::Rotation(float rotation)
     Time in between frames
 */
 /******************************************************************************/
-void Bounds::Update(float dt)
+void Collider::Update(float dt)
 {
 
 }

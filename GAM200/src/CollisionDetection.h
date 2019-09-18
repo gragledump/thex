@@ -1,12 +1,12 @@
 /******************************************************************************/
 /*!
-\file   PhysicsBody.h
+\file   CollisionDetection.h
 \author Bennett Ewanchyna
 \par    email: bennett.e@digipen.edu
 \par	GAM200 Project
 \date   9/16/19
 \brief
-  Basic physics for a game object. Derived from Component
+  Collision detection system for game objects
 */
 /******************************************************************************/
 
@@ -14,30 +14,32 @@
 
 #include "System.h"
 
+struct Message;
+class Collider;
+
 /******************************************************************************/
 /*!
-  \class BoundsDetection
+  \class CollisionDetection
   \brief
-    Interface for Bounds collision detection system
+    Interface for collision detection system
 */
 /******************************************************************************/
-class BoundsDetection : public System
+class CollisionDetection : public System
 {
 public:
-    BoundsDetection() {};
-    ~BoundsDetection() {};
+    CollisionDetection() {};
+    ~CollisionDetection() {};
 
-    void Tick(float dt) { (dt); };
+    void Tick(float dt);
     void Handle_Message(const Message& msg) { (msg); };
 
     void Init();
-
-    void Update(float dt);
 
     void Shutdown();
 
 
 private:
-
+	void ColliderCheck(const Collider& CollA, const Collider& CollB) const;
+	void BoxBoxCollision(const Collider& CollA, const Collider& CollB) const;
 
 };

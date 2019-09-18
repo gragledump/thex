@@ -121,8 +121,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Bounds.cpp" />
-    <ClCompile Include="src\BoundsDetection.cpp" />
+    <ClCompile Include="src\Collider.cpp" />
+    <ClCompile Include="src\CollisionDetection.cpp" />
     <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -139,8 +139,8 @@
     <ClCompile Include="src\UnitTest_Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Bounds.h" />
-    <ClInclude Include="src\BoundsDetection.h" />
+    <ClInclude Include="src\Collider.h" />
+    <ClInclude Include="src\CollisionDetection.h" />
     <ClInclude Include="src\Component.h" />
     <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\Engine.h" />

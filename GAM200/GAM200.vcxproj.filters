@@ -46,10 +46,10 @@
     <Filter Include="Source Files\Engine\Factory\Component\Physics">
       <UniqueIdentifier>{086bfe94-d8af-411f-9a9b-2a0e3db73811}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Factory\Component\Bounds">
+    <Filter Include="Source Files\Engine\Factory\Component\Collider">
       <UniqueIdentifier>{74fea874-4ab7-4911-bb60-9e9b861e2516}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Systems\Bounds">
+    <Filter Include="Source Files\Engine\Systems\Collision">
       <UniqueIdentifier>{257cb4b5-bbd8-41c2-9568-aa65a2118ae7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -90,11 +90,11 @@
     <ClCompile Include="src\PhysicsBody.cpp">
       <Filter>Source Files\Engine\Factory\Component\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bounds.cpp">
-      <Filter>Source Files\Engine\Factory\Component\Bounds</Filter>
+    <ClCompile Include="src\Collider.cpp">
+      <Filter>Source Files\Engine\Factory\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="src\BoundsDetection.cpp">
-      <Filter>Source Files\Engine\Systems\Bounds</Filter>
+    <ClCompile Include="src\CollisionDetection.cpp">
+      <Filter>Source Files\Engine\Systems\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,11 +137,11 @@
     <ClInclude Include="src\PhysicsBody.h">
       <Filter>Source Files\Engine\Factory\Component\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bounds.h">
-      <Filter>Source Files\Engine\Factory\Component\Bounds</Filter>
+    <ClInclude Include="src\Collider.h">
+      <Filter>Source Files\Engine\Factory\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="src\BoundsDetection.h">
-      <Filter>Source Files\Engine\Systems\Bounds</Filter>
+    <ClInclude Include="src\CollisionDetection.h">
+      <Filter>Source Files\Engine\Systems\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
