@@ -19,11 +19,15 @@
 
 */
 /******************************************************************************/
-SceneTable::SceneTable()
+SceneTable::SceneTable() : sceneName_(SCENE_INVALID)
 {
-	sceneName_ = SCENE_INVALID;
+	
 }
 
+SceneTable::SceneTable(SceneState sceneName) : sceneName_(sceneName)
+{
+
+}
 
 /******************************************************************************/
 /*!

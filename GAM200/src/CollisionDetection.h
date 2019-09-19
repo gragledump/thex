@@ -15,6 +15,7 @@
 #include "System.h"
 
 struct Message;
+struct AABB;
 class Collider;
 
 /******************************************************************************/
@@ -39,7 +40,7 @@ public:
 
 
 private:
-	void ColliderCheck(const Collider& CollA, const Collider& CollB) const;
-	void BoxBoxCollision(const Collider& CollA, const Collider& CollB) const;
-
+	void ColliderCheck(Collider* CollA, Collider* CollB) const;
+	void BoxBoxCollision(Collider* CollA, Collider* CollB) const;
+    bool TestAABBOverlap(AABB* a, AABB* b) const;
 };

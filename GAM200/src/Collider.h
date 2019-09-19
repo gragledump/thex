@@ -29,50 +29,49 @@ public:
 	typedef enum ColliderType
 	{
 		COLLIDER_INVALID = -1,
-
 		COLLIDER_BOX,
-
 		COLLIDER_CIRCLE,
-
 		COLLIDER_COUNT
 	}ColliderType;
 
     Collider();
     Collider(ColliderType type);
     Collider(const Collider& other);
+    Collider(const Transform& parent);
     ~Collider();
     Component* Clone() const;
 
     void Tick(float dt) { (dt); };
     void Handle_Message(const Message& msg) { (msg); };
 
-    void Update(float dt);
-
     ColliderType Type() const;
     void Type(ColliderType type);
 
-    glm::vec2 Position() const;
-    void Position(glm::vec2& position);
+    const glm::vec2* Position() const;
 
-    glm::vec2 Scale() const;
-    void Scale(glm::vec2& size);
+    const glm::vec2* Scale() const;
+    void Scale(const glm::vec2& size);
 
     float Rotation() const;
-    void Rotation(float rotation);
+
+    const Transform* Parent();
 
 
 
 private:
     ColliderType type_;
 
-    glm::vec2 position_;
+    const glm::vec2* position_;
+
+    const glm::vec2* scale_;
 
     glm::vec2 offset_;
 
-    glm::vec2 scale_;
+    const float* rotation_;
 
-    float rotation_;
+    const Transform* parent_;
 
-    Transform* parent_;
+    
+    void SetTransform();
 
 };

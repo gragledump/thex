@@ -21,12 +21,10 @@
 
 */
 /******************************************************************************/
-PhysicsBody::PhysicsBody() : Component(CMP_PHYSICS)
+PhysicsBody::PhysicsBody() : Component(CMP_PHYSICS),
+acceleration_(0.0f, 0.0f), velocity_(0.0f, 0.0f), oldTranslation_(0.0f, 0.0f), rotationalVelocity_(0.0f)
 {
-  acceleration_ = { 0.0f, 0.0f };
-  velocity_ = { 0.0f, 0.0f };
-  oldTranslation_ = { 0.0f, 0.0f };
-  rotationalVelocity_ = 0;
+
 }
 
 /******************************************************************************/

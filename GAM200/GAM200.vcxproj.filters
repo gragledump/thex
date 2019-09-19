@@ -96,6 +96,9 @@
     <ClCompile Include="src\CollisionDetection.cpp">
       <Filter>Source Files\Engine\Systems\Collision</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColliderBox.cpp">
+      <Filter>Source Files\Engine\Factory\Component\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="src\CollisionDetection.h">
       <Filter>Source Files\Engine\Systems\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ColliderBox.h">
+      <Filter>Source Files\Engine\Factory\Component\Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

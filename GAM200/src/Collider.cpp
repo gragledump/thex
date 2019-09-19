@@ -11,6 +11,7 @@
 /******************************************************************************/
 
 #include "Collider.h" 
+#include "Transform.h"
 
 /******************************************************************************/
 /*!
@@ -21,14 +22,10 @@
 
 */
 /******************************************************************************/
-Collider::Collider() : Component(CMP_COLLIDER)
+Collider::Collider() : Component(CMP_COLLIDER), 
+type_(COLLIDER_INVALID), offset_(0.0f, 0.0f), parent_(nullptr)
 {
-    type_ = COLLIDER_INVALID;
-    position_ = { 0.0f, 0.0f };
-    scale_ = { 0.0f, 0.0f };
-    offset_ = { 0.0f, 0.0f };
-    rotation_ = 0.0f;
-    parent_ = nullptr;
+
 }
 
 /******************************************************************************/
@@ -42,14 +39,10 @@ Collider::Collider() : Component(CMP_COLLIDER)
     Type of Collider
 */
 /******************************************************************************/
-Collider::Collider(ColliderType type) : Component(CMP_COLLIDER)
+Collider::Collider(ColliderType type) : Component(CMP_COLLIDER),
+type_(type), offset_(0.0f, 0.0f), parent_(nullptr)
 {
-    type_ = type;
-    position_ = { 0.0f, 0.0f };
-    scale_ = { 0.0f, 0.0f };
-    offset_ = { 0.0f, 0.0f };
-    rotation_ = 0.0f;
-    parent_ = nullptr;
+
 }
 
 /******************************************************************************/
@@ -67,6 +60,13 @@ Collider::Collider(const Collider& other) : Component(other)
 {
     *this = other;
 }
+
+Collider::Collider(const Transform& other) : Component(CMP_COLLIDER),
+type_(COLLIDER_INVALID), offset_(0.0f, 0.0f), parent_(&other)
+{
+    SetTransform();
+}
+
 
 Collider::~Collider()
 {
@@ -114,40 +114,28 @@ void Collider::Type(ColliderType type)
 
 /******************************************************************************/
 /*!
-  \fn glm::vec2& Collider::Position() const
+  \fn const glm::vec2* Collider::Position() const
 
   \brief
     Returns the position of the Collider
 */
 /******************************************************************************/
-glm::vec2 Collider::Position() const
+const glm::vec2* Collider::Position() const
 {
     return position_;
 }
 
-/******************************************************************************/
-/*!
-  \fn void Collider::Position(glm::vec2& position)
-
-  \brief
-    Sets position of Collider
-*/
-/******************************************************************************/
-void Collider::Position(glm::vec2& position)
-{
-    position_ = position;
-}
 
 
 /******************************************************************************/
 /*!
-  \fn glm::vec2& Collider::Scale() const
+  \fn const glm::vec2* Collider::Scale() const
 
   \brief
     Returns the scale of the Collider
 */
 /******************************************************************************/
-glm::vec2 Collider::Scale() const
+const glm::vec2* Collider::Scale() const
 {
     return scale_;
 }
@@ -160,9 +148,9 @@ glm::vec2 Collider::Scale() const
     Sets scale of Collider
 */
 /******************************************************************************/
-void Collider::Scale(glm::vec2& scale)
+void Collider::Scale(const glm::vec2& scale)
 {
-    scale_ = scale;
+    scale_ = &scale;
 }
 
 /******************************************************************************/
@@ -175,35 +163,32 @@ void Collider::Scale(glm::vec2& scale)
 /******************************************************************************/
 float Collider::Rotation() const
 {
-    return rotation_;
-}
-
-/******************************************************************************/
-/*!
-  \fn void Collider::Rotation(float rotation)
-
-  \brief
-    Sets the rotation of Collider
-*/
-/******************************************************************************/
-void Collider::Rotation(float rotation)
-{
-  rotation_ = rotation;
+    return *rotation_;
 }
 
 
 /******************************************************************************/
 /*!
-  \fn void Collider::Update(float dt)
+  \fn const Transform* Collider::Parent()
 
   \brief
-    
-
-  \param dt
-    Time in between frames
+    Returns the parent transform
 */
 /******************************************************************************/
-void Collider::Update(float dt)
+const Transform* Collider::Parent()
 {
-
+    return parent_;
 }
+
+
+
+void Collider::SetTransform()
+{
+    if (parent_)
+    {
+        position_ = &parent_->Translation();
+        scale_ = &parent_->Scale();
+        //rotation_ = &parent_->Rotation();
+    }
+}
+

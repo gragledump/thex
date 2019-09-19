@@ -32,6 +32,7 @@ class SceneTable
 public:
 
 	SceneTable();
+    SceneTable(SceneState sceneName);
 
     // Returns whether the scene is valid
     static bool Valid(SceneState scene);
